@@ -1,5 +1,7 @@
 
 import numpy as np
+from numpy.linalg import inv
+from numpy import linalg as LA
 
 def getSampleMean(Sample):
 
@@ -74,8 +76,35 @@ def getSampleVar(Sample):
     return sampleDev
 
 
+def getInverse(Matrix):
+
+    inverse = []
+    X = Matrix
+    inverse = inv(np.matrix(X))
+
+    return inverse
+
+def getEigenValues(Matrix):
+
+    eigenvals = []
+    X = Matrix
+    eigenvals = LA.eigvals(X)
+
+    return eigenvals
+
+def getEigenVectors(Matrix):
+
+    eigenVects = []
+
+    return eigenVects
+
+S = np.array([[5,4],[4,5]])
 Y = [3497900, 2485475, 1782875, 1725450, 1645575, 1469800]
 
 deviation = getDeviationVect(Y)
 projection = getProjection(Y)
-print(getSampleVar(Y))
+S_inv =  getInverse(S)
+
+print(S_inv)
+print(getEigenValues(S_inv))
+# print(getSampleVar(Y))
