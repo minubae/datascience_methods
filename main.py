@@ -5,22 +5,17 @@ from numpy import linalg as LA
 
 def getSampleMean(Sample):
 
-    xT = Sample
     sampleMean = 0
-
-    n = len(xT)
+    xT = Sample; n = len(xT)
     sampleMean = np.sum(xT)/n
 
     return sampleMean
 
-
 def getProjection(Sample):
 
-    yT = Sample
-    n = len(yT)
+    yT = Sample; n = len(yT)
     xMean = getSampleMean(yT)
     oneVect = np.ones(n)
-
     projection = xMean*oneVect
 
     return projection
@@ -38,8 +33,7 @@ def getDeviationVect(Sample):
 def checkOrthogonality(X, Y):
 
     result = 0
-    x = X
-    y = Y
+    x = X; y = Y
     result = np.dot(x,y)
 
     return result
@@ -49,7 +43,6 @@ def getNormDeviation(Deviation):
     norm = 0
     temp = []
     deviation = Deviation
-
 
     for i, di in enumerate(deviation):
 
